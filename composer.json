@@ -1,0 +1,55 @@
+{
+    "name": "surda/logging",
+    "description": "Plug-in support logging for Tracy / Nette Framework",
+    "keywords": ["nette", "logging"],
+    "type": "library",
+    "homepage": "http://surani.cz",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Radek Šuráni",
+            "homepage": "http://surani.cz",
+            "email": "radek@surani.cz"
+        }
+    ],
+    "support": {
+        "email": "radek@surani.cz",
+        "issues": "https://github.com/surda/logging/issues"
+    },
+    "require": {
+        "php": "^8.0",
+        "psr/log": "^1.0 || ^2.0",
+        "tracy/tracy": "^2.0|^3.0"
+    },
+    "require-dev": {
+        "nette/tester": "^2.0",
+        "ninjify/nunjuck": "0.3",
+        "phpstan/phpstan": "^1.0",
+        "phpstan/phpstan-strict-rules": "^1.0",
+        "phpstan/phpstan-nette": "^1.0",
+        "phpstan/phpstan-deprecation-rules": "^1.0"
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "autoload": {
+        "psr-4": {
+            "Surda\\Logging\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\Surda\\Logging\\": "tests/cases"
+        }
+    },
+    "scripts": {
+        "tests": [
+            "vendor/bin/tester -s -p php -C tests/cases"
+        ],
+        "phpstan": [
+            "vendor/bin/phpstan analyse -l 8 -c phpstan.neon src"
+        ],
+        "da": [
+            "composer dump-autoload -o"
+        ]
+    }
+}
